@@ -1,4 +1,8 @@
-require("dotenv").config();
+// Load .env file only in development
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config();
+  }
+
 const OpenAI= require("openai");
 
 const openai=new OpenAI({
