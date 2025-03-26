@@ -54,7 +54,7 @@ export default function DeepSeekChat() {
 
     try {
       //https://aichat-integrate-2.onrender.com/deepseek
-      const res = await fetch("http://localhost:5000/deepseek", {
+      const res = await fetch("https://aichat-integrate-2.onrender.com/deepseek", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ query }),
