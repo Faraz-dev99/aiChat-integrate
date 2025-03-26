@@ -30,7 +30,7 @@ router.post("/deepseek",async (req,res)=>{
         });
     }
     catch(err){
-        res.status(400).json({
+        res.status(500).json({
             error:err.message
         })
     }

@@ -53,7 +53,8 @@ export default function DeepSeekChat() {
     setQuery("");
 
     try {
-      const res = await fetch("https://aichat-integrate-2.onrender.com/deepseek", {
+      //https://aichat-integrate-2.onrender.com/deepseek
+      const res = await fetch("http://localhost:5000/deepseek", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ query }),
@@ -96,7 +97,7 @@ export default function DeepSeekChat() {
   return (
     <div className={`flex flex-col h-screen ${toggleTheme ? theme.light.base : theme.dark.base}`}>
       <div className="flex justify-between items-center px-4 py-4 w-full">
-        <h2 className="text-xl font-bold">DeepSeek AI Chat</h2>
+        <h2 className="text-xl font-bold ">DeepSeek AI Chat</h2>
         <div className="cursor-pointer mr-2" onClick={() => setToggleTheme(!toggleTheme)}>
           {toggleTheme ? <MdDarkMode /> : <MdLightMode />}
         </div>
