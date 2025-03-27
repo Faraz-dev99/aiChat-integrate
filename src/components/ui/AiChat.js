@@ -19,14 +19,14 @@ const AiChat = ({ data, className, isError }) => {
     const responseData = isStringResponse ? { content: data } : data?.choices?.[0]?.message;
     
     return (
-        <div className="flex gap-3 py-4">
+        <div className="flex gap-3 py-4 ">
             <div className="min-w-8 h-8 grid place-items-center text-white rounded-full border border-blue-800 bg-blue-600 shrink-0">
                 DS
             </div>
 
             <div className="flex-1 min-w-0 space-y-3">
                 {/* Response Time & Toggle Reasoning - Always shown */}
-                <div>
+                <div className=" max-w-none w-full">
                     <div className={`px-3 py-1 rounded-full ${className} text-sm w-fit flex items-center gap-3 cursor-pointer`}
                         onClick={() => setToggleReasoning(!toggleReasoning)}>
                         <div>
@@ -39,13 +39,13 @@ const AiChat = ({ data, className, isError }) => {
 
                     {/* Reasoning Section (only for successful responses) */}
                     {!isStringResponse && toggleReasoning && responseData?.reasoning && (
-                        <div className="flex gap-4 mt-3 max-w-none w-full">
-                            <div className="bg-slate-600 w-[0.2px] my-5"></div>
-                            <div className="prose prose-slate text-slate-600 leading-relaxed max-w-none break-words">
+                        <div className="flex gap-4 mt-3 max-w-none w-full overflow-hidden">
+                            <div className="bg-slate-600 w-[0.2px] my-5 shrink-0"></div>
+                            <div className="  max-w-none w-full text-slate-600 break-words min-w-0">
                                 <ReactMarkdown
                                     components={{
                                         p: ({ node, ...props }) => (
-                                            <p className="my-4 leading-relaxed" {...props} />
+                                            <p className="my-4 leading-relaxed whitespace-pre-wrap" {...props} />
                                         ),
                                     }}
                                 >

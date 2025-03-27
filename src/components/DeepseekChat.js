@@ -103,7 +103,7 @@ export default function DeepSeekChat() {
         </div>
       </div>
 
-      <div className="flex w-full min-h-32 overflow-y-auto custom-scrollbar p-4">
+      <div className="flex w-full min-h-32 overflow-y-auto  custom-scrollbar p-4">
         <div className="mx-auto max-w-4xl w-full">
           <div className="space-y-8">
             {conversation.map((entry, index) => (
