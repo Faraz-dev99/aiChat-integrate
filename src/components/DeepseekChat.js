@@ -108,7 +108,7 @@ export default function DeepSeekChat() {
       <div className=" grid place-items-center mt-6">
         <div className={` px-4 py-6 mx-4 ${toggleTheme ? theme.light.hightlight2 : theme.dark.hightlight2} rounded-xl text-center max-w-[500px]`}>
           <div className=" text-xl font-bold mb-3"> Welcome to DeepQuery!</div>
-          <div className=" font-normal text-center">
+          <div className=" font-light text-center">
             DeepQuery is a query-based platform that connects you directly to DeepSeek for instant answers. Just ask your question and get quick, reliable responses—simple and hassle-free! 🚀
           </div>
         </div>
