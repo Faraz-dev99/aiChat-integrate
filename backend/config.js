@@ -6,7 +6,7 @@ if (process.env.NODE_ENV !== 'production') {
 const OpenAI= require("openai");
 
 const openai=new OpenAI({
-    baseURL: process.env.BASE_URL,
+    baseURL: process.env.OPENROUTER_API_KEY,
     apiKey: process.env.API_KEY
 });
 
