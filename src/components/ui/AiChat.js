@@ -21,7 +21,7 @@ const AiChat = ({ data, className, isError }) => {
     return (
         <div className="flex gap-3 py-4 ">
             <div className="min-w-8 h-8 grid place-items-center text-white rounded-full border border-blue-800 bg-blue-600 shrink-0">
-                DS
+                DQ
             </div>
 
             <div className="flex-1 min-w-0 space-y-3">

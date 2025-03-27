@@ -21,11 +21,13 @@ export default function DeepSeekChat() {
     dark: {
       base: "bg-gray-900 text-white",
       hightlight1: " bg-gray-700 text-white",
+      hightlight2:" bg-slate-800 text-white",
       placeholder: "placeholder:text-slate-300"
     },
     light: {
       base: "bg-slate-100 text-slate-800",
       hightlight1: " bg-blue-200 text-blue-900",
+      hightlight2:" bg-blue-200 text-blue-900",
       placeholder: "placeholder:text-slate-700"
     }
   };
@@ -67,7 +69,7 @@ export default function DeepSeekChat() {
       }
 
       const data = await res.json();
-      
+
       setConversation(prev => {
         const newConv = [...prev];
         newConv[newConv.length - 1].ai = data;
@@ -77,13 +79,13 @@ export default function DeepSeekChat() {
       setConversation(prev => {
         const newConv = [...prev];
         const lastIndex = newConv.length - 1;
-        
-        const isAborted = error.name === 'AbortError' || 
-                         error.message.includes('abort') || 
-                         controller.signal.aborted;
 
-        newConv[lastIndex].ai = isAborted 
-          ? "Response stopped by user" 
+        const isAborted = error.name === 'AbortError' ||
+          error.message.includes('abort') ||
+          controller.signal.aborted;
+
+        newConv[lastIndex].ai = isAborted
+          ? "Response stopped by user"
           : error.message || "Error fetching response";
 
         return newConv;
@@ -103,7 +105,17 @@ export default function DeepSeekChat() {
         </div>
       </div>
 
-      <div className="flex w-full min-h-32 overflow-y-auto  custom-scrollbar p-4">
+      <div className=" grid place-items-center mt-6">
+        <div className={` px-4 py-6 mx-4 ${toggleTheme ? theme.light.hightlight2 : theme.dark.hightlight2} rounded-xl text-center max-w-[500px]`}>
+          <div className=" text-xl font-bold mb-3"> Welcome to DeepQuery!</div>
+          <div className=" font-normal text-center">
+            DeepQuery is a query-based platform that connects you directly to DeepSeek for instant answers. Just ask your question and get quick, reliable responses—simple and hassle-free! 🚀
+          </div>
+        </div>
+      </div>
+
+
+      <div className="flex w-full min-h-0 overflow-y-auto  custom-scrollbar p-4">
         <div className="mx-auto max-w-4xl w-full">
           <div className="space-y-8">
             {conversation.map((entry, index) => (
@@ -126,11 +138,11 @@ export default function DeepSeekChat() {
                     </div>
                   </div>
                 ) : (
-                  <AiChat 
-                    data={entry.ai} 
+                  <AiChat
+                    data={entry.ai}
                     className={`${toggleTheme ? theme.light.hightlight1 : theme.dark.hightlight1}`}
                     isError={typeof entry.ai === 'string' && (
-                      entry.ai.startsWith("Response stopped") || 
+                      entry.ai.startsWith("Response stopped") ||
                       entry.ai.startsWith("Error") ||
                       entry.ai.startsWith("Server responded")
                     )}
