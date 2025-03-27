@@ -97,7 +97,7 @@ export default function DeepSeekChat() {
   return (
     <div className={`flex flex-col h-screen ${toggleTheme ? theme.light.base : theme.dark.base}`}>
       <div className="flex justify-between items-center px-4 py-4 w-full">
-        <h2 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-500">DeepQuery</h2>
+        <h2 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-500">DeepQuery</h2>
         <div className="cursor-pointer mr-2" onClick={() => setToggleTheme(!toggleTheme)}>
           {toggleTheme ? <MdDarkMode /> : <MdLightMode />}
         </div>
