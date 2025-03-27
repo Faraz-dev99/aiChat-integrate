@@ -105,8 +105,9 @@ export default function DeepSeekChat() {
         </div>
       </div>
 
-      {
-        conversation.length===0 && (
+      <div className="flex w-full min-h-0 overflow-y-auto  custom-scrollbar p-4">
+        <div className="mx-auto max-w-4xl w-full">
+          <div className="space-y-8">
           <div className=" grid place-items-center mt-6">
         <div className={` px-4 py-6 mx-4 ${toggleTheme ? theme.light.hightlight2 : theme.dark.hightlight2} rounded-xl text-center max-w-[500px]`}>
           <div className=" text-xl font-bold mb-3"> Welcome to DeepQuery!</div>
@@ -115,15 +116,6 @@ export default function DeepSeekChat() {
           </div>
         </div>
       </div>
-        )
-      }
-
-      
-
-
-      <div className="flex w-full min-h-0 overflow-y-auto  custom-scrollbar p-4">
-        <div className="mx-auto max-w-4xl w-full">
-          <div className="space-y-8">
             {conversation.map((entry, index) => (
               <div key={index} className="py-1">
                 <UserChat data={entry.user} />
