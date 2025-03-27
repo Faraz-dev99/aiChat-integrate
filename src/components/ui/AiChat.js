@@ -39,9 +39,9 @@ const AiChat = ({ data, className, isError }) => {
 
                     {/* Reasoning Section (only for successful responses) */}
                     {!isStringResponse && toggleReasoning && responseData?.reasoning && (
-                        <div className="flex gap-4 mt-3">
+                        <div className="flex gap-4 mt-3 max-w-none w-full">
                             <div className="bg-slate-600 w-[0.2px] my-5"></div>
-                            <div className="prose prose-slate text-slate-600 max-w-none w-full break-words">
+                            <div className="prose prose-slate text-slate-600 leading-relaxed max-w-none break-words">
                                 <ReactMarkdown
                                     components={{
                                         p: ({ node, ...props }) => (
