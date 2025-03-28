@@ -133,7 +133,7 @@ export default function DeepSeekChat() {
                       <div>thinking..</div>
                       <HashLoader
                         loading={true}
-                        color="#1E88E5"
+                        color="#00BCD4"
                         size={12}
                         aria-label="Loading Spinner"
                         data-testid="loader"
