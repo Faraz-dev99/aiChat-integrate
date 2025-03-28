@@ -3,6 +3,7 @@ import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { dracula } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import { FaChevronUp, FaChevronDown } from "react-icons/fa";
+import logo from "../../logo.png"
 
 const AiChat = ({ data, className, isError }) => {
     const [copiedCode, setCopiedCode] = useState(null);
@@ -20,8 +21,8 @@ const AiChat = ({ data, className, isError }) => {
     
     return (
         <div className="flex gap-3 py-4 ">
-            <div className="min-w-8 h-8 grid place-items-center text-white rounded-full border border-blue-800 bg-blue-600 shrink-0">
-                DQ
+            <div className="min-w-8 w-8 h-8 grid place-items-center text-slate-900 font-medium rounded-full  shrink-0">
+                {logo?<img src={logo} alt="logo" className=" w-full h-full" />:<div className=" bg-cyan-500 text-white rounded-full h-full w-full grid place-items-center">DQ</div>}
             </div>
 
             <div className="flex-1 min-w-0 space-y-3">

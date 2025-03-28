@@ -7,6 +7,7 @@ import AiChat from "./ui/AiChat";
 import UserChat from "./ui/UserChat";
 import { MdLightMode, MdDarkMode } from "react-icons/md";
 import HashLoader from "react-spinners/HashLoader";
+import logo from "../logo.png"
 import "../App.css";
 
 export default function DeepSeekChat() {
@@ -21,13 +22,13 @@ export default function DeepSeekChat() {
     dark: {
       base: "bg-gray-900 text-white",
       hightlight1: " bg-gray-700 text-white",
-      hightlight2:" bg-slate-800 text-white",
+      hightlight2: " bg-slate-800 text-white",
       placeholder: "placeholder:text-slate-300"
     },
     light: {
       base: "bg-slate-100 text-slate-800",
       hightlight1: " bg-blue-200 text-blue-900",
-      hightlight2:" bg-blue-200 text-blue-900",
+      hightlight2: " bg-blue-200 text-blue-900",
       placeholder: "placeholder:text-slate-700"
     }
   };
@@ -99,7 +100,11 @@ export default function DeepSeekChat() {
   return (
     <div className={`flex flex-col h-screen ${toggleTheme ? theme.light.base : theme.dark.base}`}>
       <div className="flex justify-between items-center px-4 py-4 w-full">
-        <h2 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-500">DeepQuery</h2>
+        <div className="flex justify-center items-center gap-1">
+          <img src={logo} alt="logo" className=" h-8 w-8" />
+          <h2 className="text-xl font-bold ">DeepQuery</h2>
+        </div>
+
         <div className="cursor-pointer mr-2" onClick={() => setToggleTheme(!toggleTheme)}>
           {toggleTheme ? <MdDarkMode /> : <MdLightMode />}
         </div>
@@ -108,21 +113,21 @@ export default function DeepSeekChat() {
       <div className="flex w-full min-h-0 overflow-y-auto  custom-scrollbar p-4">
         <div className="mx-auto max-w-4xl w-full">
           <div className="space-y-8">
-          <div className=" grid place-items-center mt-6">
-        <div className={` px-4 py-6 mx-4 ${toggleTheme ? theme.light.hightlight2 : theme.dark.hightlight2} rounded-xl text-center max-w-[500px]`}>
-          <div className=" text-xl font-bold mb-3"> Welcome to DeepQuery!</div>
-          <div className=" font-light text-center">
-            DeepQuery is a query-based platform that connects you directly to DeepSeek for instant answers. Just ask your question and get quick, reliable responses—simple and hassle-free! 🚀
-          </div>
-        </div>
-      </div>
+            <div className=" grid place-items-center mt-6">
+              <div className={` px-4 py-6 mx-4 ${toggleTheme ? theme.light.hightlight2 : theme.dark.hightlight2} rounded-xl text-center max-w-[500px]`}>
+                <div className=" text-xl font-bold mb-3"> Welcome to DeepQuery!</div>
+                <div className=" font-light text-center">
+                  DeepQuery is a query-based platform that connects you directly to DeepSeek for instant answers. Just ask your question and get quick, reliable responses—simple and hassle-free! 🚀
+                </div>
+              </div>
+            </div>
             {conversation.map((entry, index) => (
               <div key={index} className="py-1">
                 <UserChat data={entry.user} />
                 {!entry.ai ? (
                   <div className="flex gap-3 py-4">
-                    <div className="min-w-8 h-8 grid place-items-center text-white rounded-full border border-blue-800 bg-blue-600 shrink-0">
-                      DS
+                    <div className="min-w-8 w-8 h-8 grid place-items-center text-slate-900 font-medium rounded-full  shrink-0">
+                      {logo ? <img src={logo} alt="logo" className=" w-full h-full" /> : <div className=" bg-cyan-500 text-white rounded-full h-full w-full grid place-items-center">DQ</div>}
                     </div>
                     <div className={`px-3 py-1 rounded-full ${toggleTheme ? theme.light.hightlight1 : theme.dark.hightlight1} text-sm w-fit flex items-center gap-2 cursor-pointer`}>
                       <div>thinking..</div>
@@ -171,7 +176,7 @@ export default function DeepSeekChat() {
             <Button
               type={loading ? "button" : "submit"}
               onClick={loading ? handleStop : undefined}
-              className={`${query === "" ? "bg-blue-500" : ""}`}
+              className={` hover:bg-cyan-700 ${query === "" ? "bg-cyan-500" : " bg-cyan-600"}`}
             >
               {loading ? <FaSquareFull /> : <IoArrowUpOutline />}
             </Button>
